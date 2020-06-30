@@ -7,15 +7,14 @@ const sayHello = () => {
 }
 
 const area = (w, h) => {
-  // should return the area
+  return(w * h)
 }
 
 const perimeter = (w, h) => {
-  // should return the perimeter
+  return(w + w + h + h)
 }
-
 const circleArea = r => {
-  // should return the area of the circle
+  return Math.PI * r * r
 }
 
 // ========================================================
@@ -27,28 +26,31 @@ const circleArea = r => {
 
 const shoppingCart = []
 
-const clearCart = () => {
-  shoppingCart.length = 0
-}
+
 
 const createItem = (name, price) => {
-  return { name, price, quantity: 1 }
+  //should return JSON Object for item
+  return { name: name, price: price, quantity: 1}
 }
 
 const getShoppingCart = () => {
-  // should return the current state of shopping cart
+  return(shoppingCart)
 }
 
 const addItemToCart = (item) => {
-  // should add item to shopping cart
+  return shoppingCart.push(item)
 }
 
 const getNumItemsInCart = () => {
-  // should return the total quantity of items in cart
+  return shoppingCart.length
 }
 
 const removeItemFromCart = (item) => {
-  // should remove item from shopping cart
+  return shoppingCart.pop(item)
+}
+
+const clearCart = () => {
+  shoppingCart.length = 0
 }
 
 module.exports = {

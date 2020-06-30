@@ -15,7 +15,6 @@ it("should say hello", function() {
   expect(hello).to.equal("Hello")
   expect(hello).with.lengthOf(5)
 })
-
 // ========================================================
 // Level 1 Challenges
 // 1. Write the pending tests check that they are pending, like this:
@@ -26,7 +25,23 @@ it("should say hello", function() {
 // This is called "Red-Green-Refactor"
 // ========================================================
 
+it("should return the area of a 5 by 6 rectangle", function() {
+  const area = utils.area(5,6)
+  expect(area).to.be.a("number")
+  expect(area).to.equal(30)
+})
 
+it("should return the perimeter of a 5 by 6 rectangle", function() {
+  const perimeter = utils.perimeter(5,6)
+  expect(perimeter).to.be.a("number")
+  expect(perimeter).to.equal(22)
+})
+
+it("should return the area of a circle of radius 5", function() {
+  const circleArea = utils.circleArea(5)
+  expect(circleArea).to.be.a("number")
+  expect(circleArea).to.equal(78.53981633974483)
+})
 
 
 // ========================================================
@@ -50,20 +65,39 @@ it("Should create a new (object) Item with name and price", function() {
   expect(item).to.have.property("quantity", 1)
 })
 
-it("Should return an array containing all items in cart")
+it("Should return an array containing all items in cart", function() {
+  const shoppingCart = utils.getShoppingCart()
+  expect(shoppingCart).to.be.a("array")
+  expect(shoppingCart).to.have.length(0)
+})
 
-it("Should add a new item to the shopping cart")
+it("Should add a new item to the shopping cart", function (){
+  const item = utils.createItem("apple", 0.99)
+  utils.addItemToCart(item)
+  const cart = utils.getShoppingCart()
+  expect(cart.length).to.equal(1)
+})
 
-it("Should return the number of items in the cart")
+it("Should return the number of items in the cart", function() {
+  const item = utils.createItem("apple", 0.99)
+  utils.addItemToCart(item)
+  expect(item).to.have.property("quantity", 1)
+})
 
-it("Should remove items from cart")
+it("Should remove items from cart", function() {
+  const item = utils.createItem("apple", 0.99)
+  utils.addItemToCart(item)
+  expect(utils.getNumItemsInCart()).to.equal(1)
+  utils.removeItemFromCart(item)
+  expect(utils.getNumItemsInCart()).to.equal(0)
+})
 
 // ========================================================
 // Stretch Challenges
 // ========================================================
 
-it("Should update the count of items in the cart")
+// it("Should update the count of items in the cart")
 
-it("Should validate that an empty cart has 0 items")
+// it("Should validate that an empty cart has 0 items")
 
-it("Should return the total cost of all items in the cart")
+// it("Should return the total cost of all items in the cart")
